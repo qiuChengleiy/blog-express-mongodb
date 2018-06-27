@@ -1,6 +1,7 @@
 /node_modules/
 /static/fonts/
 /static/images/
+/static/upload/
 /db/
 /test/node_modules/
 /test/coverage/

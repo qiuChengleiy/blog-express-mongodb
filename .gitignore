@@ -1,0 +1,10 @@
+/node_modules/
+/static/fonts/
+/static/images/
+/db/
+/test/node_modules/
+/test/coverage/
+/test/package-lock.json
+
+
+

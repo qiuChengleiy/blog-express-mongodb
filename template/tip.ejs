@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>提醒~</title>
+</head>
+<body>
+
+<h1>hello <%= message %> <span></span></h1>
+
+<script type="text/javascript">
+	  let num = 0;
+	setInterval(()=> {
+		num+=1;
+		let span = document.querySelector('span');
+
+		span.innerHTML = '剩余'+num+'秒...'
+	},1000);
+	
+	setTimeout(()=> {
+
+		window.location.href = "http://localhost:8003/home/login";
+	},3100);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>管理员登录</title>
+</head>
+<body>
+
+<label for="user"></label>
+<input type="text" name="username" id="user" value="" />
+
+<label for="pass"></label>
+<input type="password" name="pass" id="pass" value="" />
+
+<label for="file">点击上传</label>
+<input type="file" name="file" multiple="multiple" id="file" value="" style="text-indent: 0;opacity: 0" />
+
+<button class="login">登录</button>
+<button class="register">注册</button>
+<button class="file">上传</button>
+
+<img src="./upload/2f6d4eea7db48b0c6746a44d466e4130" class="up" />
+
+
+<br/>
+<form action="/home/upload" enctype="multipart/form-data" method="post">
+	<label for="files">点击上传</label>
+	<input type="file" name="touxiang" id="files" value="" style="text-indent: 0;opacity: 0"/>
+
+	 <button type="submit">提交</button>
+</form>
+
+<br/>
+
+
+
+
+<script type="text/javascript">
+
+(function() {
+	window.onload = ()=> {
+		const userInpu = document.querySelector('#user');
+		const passInpu = document.querySelector('#pass');
+		const fileInpu = document.querySelector('#file');
+
+		const loginbtn = document.querySelector('.login');
+		const regbtn = document.querySelector('.register');
+		const filebtn = document.querySelector('.file');
+
+		const imgUp = document.querySelector('.up');
+
+		if(window.XMLHttpRequest) {
+			var ajaxRequest = new XMLHttpRequest();
+		}else{
+			var ajaxRequest = new ActiveXObject();
+		}
+
+
+		//登录测试
+		loginbtn.addEventListener('click',function() {
+
+			let username = userInpu.value;
+			let password = userInpu.value;
+
+			const url = {
+				login:`/home/logins?username=${username}&password=${password}`,
+			}
+
+			ajaxRequest.open('GET',url.login,true);
+			ajaxRequest.send();
+			ajaxRequest.onreadystatechange = function() {
+
+				if(ajaxRequest.readyState == 4) {
+					
+					if(ajaxRequest.status == 200) {
+						console.log(ajaxRequest.responseText)
+						document.write(ajaxRequest.responseText)
+					}
+				}
+			}
+	   },false);
+
+
+
+		//文件上传测试
+		filebtn.addEventListener('click',function() {
+
+			let path = fileInpu.files[0]; 
+
+			const file_url = {
+				file:`/upload`,
+			}
+
+			ajaxRequest.open('POST',file_url.file,true);
+			ajaxRequest.setRequestHeader("Content-type","multipart/form-data");
+			ajaxRequest.send(path);
+			ajaxRequest.onreadystatechange = function() {
+
+				if(ajaxRequest.readyState == 4) {
+					
+					if(ajaxRequest.status == 200) {
+						console.log(ajaxRequest.responseText)
+						
+					}
+				}
+			}
+	   },false);
+
+
+
+
+
+
+
+
+
+	}
+
+
+
+
+
+
+})()
+
+</script>
+
+
+</body>
+</html>

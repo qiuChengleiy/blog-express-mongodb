@@ -100,11 +100,11 @@ $("#gotop").click(function () {
  
 //图片延时加载
 $("img.thumb").lazyload({
-    placeholder: "/Home/images/occupying.png",
+    placeholder: "/images/occupying.png",
     effect: "fadeIn"
 });
 $(".single .content img").lazyload({
-    placeholder: "/Home/images/occupying.png",
+    placeholder: "/images/occupying.png",
     effect: "fadeIn"
 });
  
@@ -125,11 +125,11 @@ jQuery.ias({
 	pagination: '.pagination',
 	next: '.next-page a',
 	trigger: '查看更多',
-	loader: '<div class="pagination-loading"><img src="/Home/images/loading.gif" /></div>',
+	loader: '<div class="pagination-loading"><img src="/images/loading.gif" /></div>',
 	triggerPageThreshold: 5,
 	onRenderComplete: function() {
 		$('.excerpt .thumb').lazyload({
-			placeholder: '/Home/images/occupying.png',
+			placeholder: '/images/occupying.png',
 			threshold: 400
 		});
 		$('.excerpt img').attr('draggable','false');
@@ -158,42 +158,42 @@ $(window).scroll(function () {
 	return false;
 };*/
 
-/*自定义右键菜单*/
-(function () {
-    var oMenu = document.getElementById("rightClickMenu");
-    var aLi = oMenu.getElementsByTagName("li");
-	//加载后隐藏自定义右键菜单
-	//oMenu.style.display = "none";
-    //菜单鼠标移入/移出样式
-    for (i = 0; i < aLi.length; i++) {
-        //鼠标移入样式
-        aLi[i].onmouseover = function () {
-            $(this).addClass('rightClickMenuActive');
-			//this.className = "rightClickMenuActive";
-        };
-        //鼠标移出样式
-        aLi[i].onmouseout = function () {
-            $(this).removeClass('rightClickMenuActive');
-			//this.className = "";
-        };
-    }
-    //自定义菜单
-    document.oncontextmenu = function (event) {
-		$(oMenu).fadeOut(0);
-        var event = event || window.event;
-        var style = oMenu.style;
-        $(oMenu).fadeIn(300);
-		//style.display = "block";
-        style.top = event.clientY + "px";
-        style.left = event.clientX + "px";
-        return false;
-    };
-    //页面点击后自定义菜单消失
-    document.onclick = function () {
-        $(oMenu).fadeOut(100);
-		//oMenu.style.display = "none"
-    }
-})();
+// /*自定义右键菜单*/
+// (function () {
+//     var oMenu = document.getElementById("rightClickMenu");
+//     var aLi = oMenu.getElementsByTagName("li");
+// 	//加载后隐藏自定义右键菜单
+// 	//oMenu.style.display = "none";
+//     //菜单鼠标移入/移出样式
+//     for (i = 0; i < aLi.length; i++) {
+//         //鼠标移入样式
+//         aLi[i].onmouseover = function () {
+//             $(this).addClass('rightClickMenuActive');
+// 			//this.className = "rightClickMenuActive";
+//         };
+//         //鼠标移出样式
+//         aLi[i].onmouseout = function () {
+//             $(this).removeClass('rightClickMenuActive');
+// 			//this.className = "";
+//         };
+//     }
+//     //自定义菜单
+//     document.oncontextmenu = function (event) {
+// 		$(oMenu).fadeOut(0);
+//         var event = event || window.event;
+//         var style = oMenu.style;
+//         $(oMenu).fadeIn(300);
+// 		//style.display = "block";
+//         style.top = event.clientY + "px";
+//         style.left = event.clientX + "px";
+//         return false;
+//     };
+//     //页面点击后自定义菜单消失
+//     document.onclick = function () {
+//         $(oMenu).fadeOut(100);
+// 		//oMenu.style.display = "none"
+//     }
+// })();
 
 /*禁止键盘操作*/
 document.onkeydown=function(event){
@@ -244,15 +244,14 @@ $(function(){
 function replace_em(str){
 	str = str.replace(/\</g,'&lt;');
 	str = str.replace(/\>/g,'&gt;');
-	str = str.replace(/\[em_([0-9]*)\]/g,'<img src="/Home/images/arclist/$1.gif" border="0" />');
+	str = str.replace(/\[em_([0-9]*)\]/g,'<img src="/images/arclist/$1.gif" border="0" />');
 	return str;
 }
 
 //Console
 try {
     if (window.console && window.console.log) {
-        console.log("\n欢迎访问异清轩博客！\n\n在本站可以看到前端技术，后端程序，网站内容管理系统等文章；\n\n还有我的程序人生！！！\n");
-        console.log("\n请记住我们的网址：%c www.ylsat.com", "color:red");
-        console.log("\nPOWERED BY WY ALL RIGHTS RESERVED");
+        console.log("\n遇见您 很开心！\n");
+        console.log("\n 项目地址 ：%chttps://github.com/qiuChengleiy/blog-express-mongodb", "color:blue");
     }
 } catch (e) {};

@@ -87,6 +87,7 @@
     "supervisor": "^0.12.0"
   },
   "scripts": {
+    "pro": "node --max_old_space_size=8000 build/build.js ",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "./node_modules/.bin/supervisor app.js",
     "mongod" :"mongod --dbpath './db' --port 27018"

@@ -38,7 +38,7 @@ app.use(cookieParser());
 
 //模板配置
 app.engine('html', consolidate.ejs);
-app.set('views', 'template');
+app.set('views', 'views');
 app.set('view engine', 'html');
 
 
@@ -47,12 +47,12 @@ app.use(static('./static/'));
 
 
 //route 配置
-app.use('/home/', require('./route/createRouter')().use());
+app.use('/', require('./route/index')().use());
 
 //初始化数据库
-const mongo_db = require('./model/test');
+//const mongo_db = require('./model/init');
 
-const serverPort = 8003;
+const serverPort = 8011;
 
 app.listen(serverPort,() => {
 	console.log(`\nServer is starting on port ${serverPort} ~~ O(∩_∩)O~~\n`);

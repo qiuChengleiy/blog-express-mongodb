@@ -4,18 +4,21 @@ module.exports = function() {
 
 	return {
 		use(){
-			router.use((req,res,next) => {
-				//判断登录状态
-				if(!req.session['admin_id'] && req.url != '/tipLogin' && req.url != '/login' && req.url != '/upload') {
-					res.redirect('/home/tipLogin');
+			// router.use((req,res,next) => {
+			// 	//判断登录状态
+			// 	if(!req.session['admin_id'] && req.url != '/tipLogin' && req.url != '/login' && req.url != '/upload') {
+			// 		res.redirect('/home/tipLogin');
 
-					const str = '123456';
-					const a = require('../libs/common').md5(str);
-					console.log(a);
-				}else{
-					next();
-				}
-			})
+			// 		const str = '123456';
+			// 		const a = require('../libs/common').md5(str);
+			// 		console.log(a);
+			// 	}else{
+			// 		next();
+			// 	}
+			// })
+
+			router.get('/',require('../controller/index'));
+
 
 			router.get('/tipLogin',(req,res,next) => {
 				res.render('tip.ejs',{message:'请登录哦~'})

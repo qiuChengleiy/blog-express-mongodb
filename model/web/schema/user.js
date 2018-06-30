@@ -3,7 +3,7 @@
 *
 */
 
-const mongoose = require('../../libs/db');
+const mongoose = require('../../../libs/db');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
